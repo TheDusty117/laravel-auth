@@ -83,6 +83,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        //implementazione soft destroy
+
+        $project->delete();
+
+        return to_route('projects.index');
     }
 }
