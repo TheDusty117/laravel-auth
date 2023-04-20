@@ -15,7 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Post::all();
+        $projects = Project::all();
 
         return view('projects.index',compact('projects'));
     }
@@ -27,7 +27,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('projects.create');
     }
 
     /**

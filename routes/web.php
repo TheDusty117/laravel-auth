@@ -2,7 +2,6 @@
 //importo il controller
 use App\Http\Controllers\ProjectController;
 
-
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,7 +31,7 @@ Route::middleware('auth')->group(function () { //queste rotte puo' usarle solo L
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-    Route::resource('Projects', ProjectController::class);
+    Route::resource('projects', ProjectController::class);
 
 });
 
