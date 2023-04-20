@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
+use App\Models\Project;
 
 class ProjectSeeder extends Seeder
 {
@@ -19,10 +20,10 @@ class ProjectSeeder extends Seeder
         for ($i=0; $i < 20; $i++) {
 
             $project = new Project();
-            $project->title = $faker->sentences( $faker->numberBetween(3,5) );
+            $project->title = $faker->sentence( $faker->numberBetween(3,5) );
             $project->client = $faker->name;
             $project->description = $faker->optional()->text(100);
-            $project->slug = Str::slug($post->title, '-');
+            $project->slug = Str::slug($project->title, '-');
 
             $project->save();
 
