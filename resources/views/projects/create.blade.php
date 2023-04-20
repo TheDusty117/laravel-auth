@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Project CREATE</h1>
+<div class="container">
+    <h3>Project CREATE</h3>
+
+</div>
 @endsection

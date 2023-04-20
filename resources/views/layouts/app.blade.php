@@ -49,7 +49,7 @@
                         {{-- aggiungo auth e endautg --}}
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('Projects') }}</a>
+                            <a class="nav-link" href="{{route('projects.index') }}">{{ __('Projects') }}</a>
                         </li>
                         @endauth
                     </ul>
