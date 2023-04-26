@@ -16,7 +16,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::withTrashed()->get();
 
         return view('projects.index',compact('projects'));
     }
@@ -91,6 +91,18 @@ class ProjectController extends Controller
 
     }
 
+    public function restore(Project $project){
+
+
+        if ($project->trashed()) {
+            $project->restore();
+        }
+
+        return back();
+
+
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -99,9 +111,13 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //implementazione soft destroy
 
-        $project->delete();
+        if ($project->trashed()) {
+            $project->forceDelete(); // eliminazione def
+        } else {
+            $project->delete(); //eliminazione soft
+        }
+
 
         return to_route('projects.index');
     }
