@@ -37,10 +37,10 @@
                         <td>{{ $project->client }}</td>
                         <td>{{ $project->description }}</td>
                         <td>{{ $project->slug }}</td>
-                        <td>{{ $project->created_at }}</td>
-                        <td>{{ $project->updated_at }}</td>
+                        <td>{{ $project->created_at->format('d/m/Y') }}</td>
+                        <td>{{ $project->updated_at->format('d/m/Y') }}</td>
                         <td>
-                            {{ $project->trashed() ? $project->deleted_at : '' }}
+                            {{ $project->trashed() ? $project->deleted_at->format('d/m/Y') : '' }}
                         </td>
                         <td>
                             <div class="d-flex">
