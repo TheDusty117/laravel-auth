@@ -79,7 +79,16 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $data = $request->validated();
+
+        if($data['title'] !== $project->title){
+            $data['slug'] = Str::slug($data['title']);
+        }
+
+        $project->update($data);
+
+        return to_route('projects.show', $project);
+
     }
 
     /**

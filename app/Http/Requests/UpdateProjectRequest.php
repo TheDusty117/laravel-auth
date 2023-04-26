@@ -31,7 +31,10 @@ class UpdateProjectRequest extends FormRequest
                 'max:150',
                 Rule::unique('projects','title')->ignore($this->project)
             ],
-            'client' => 'required|max:150',
+            'client' => [
+                'required',
+                'max:150',
+            ],
             'description' => 'nullable|string'
         ];
     }
